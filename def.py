@@ -114,8 +114,8 @@ def unli_harf_soni(matn):
     sanash = sum(1 for harf in matn if harf in unlilar)
     return sanash
 
-so‘z = input("So‘z kiriting: ")
-print(f"Unli harflar soni: {unli_harf_soni(so‘z)}")
+soz = input("So‘z kiriting: ")
+print(f"Unli harflar soni: {unli_harf_soni(soz)}")
 
 
 
@@ -147,4 +147,132 @@ else:
 
 
 
-# 11) 
+# 11) Matndagi so‘zlar sonini hisoblovchi funksiya
+
+
+
+def sozlar_soni(matn):
+    sozlar = matn.split()
+    return len(sozlar)
+
+matn = input("Matn kiriting: ")
+print(f"So‘zlar soni: {sozlar_soni(matn)}")
+
+
+
+
+# 12) Foydalanuvchi kiritgan sonlar orasidan eng kattasini topish
+
+
+
+def eng_katta_son(*sonlar):
+    return max(sonlar)
+
+print(eng_katta_son(3, 7, 2, 9, 12, 5))  # Natija: 12
+
+
+# 13) Raqamlarni tartiblash
+
+
+def tartibla(*sonlar):
+    return sorted(sonlar)
+
+print(tartibla(12, 3, 45, 7, 8, 2, 19))  # Natija: [2, 3, 7, 8, 12, 19, 45]
+
+
+# 14) Berilgan matnni teskari yozuvchi funksiya
+
+
+def teskari_matn(matn):
+    return matn[::-1]
+
+matn = input("Matn kiriting: ")
+print(f"Teskari matn: {teskari_matn(matn)}")
+
+
+# 15) Sonning barcha bo‘luvchilarini topish 
+
+
+
+
+def boluvchilar(son):
+    return [i for i in range(1, son + 1) if son % i == 0]
+
+n = int(input("Son kiriting: "))
+print(f"{n} ning bo‘luvchilari: {boluvchilar(n)}")
+
+
+
+# 16) Foydalanuvchi kiritgan sonni ikkilik sanoq sistemasiga o‘tkazish
+
+
+
+def ikkilik(son):
+    return bin(son)[2:]
+
+n = int(input("Son kiriting: "))
+print(f"{n} ning ikkilikda ifodasi: {ikkilik(n)}")
+
+
+
+# 17) Sonlarning o‘rta arifmetigini hisoblash
+
+
+def orta_arifmetik(*sonlar):
+    return sum(sonlar) / len(sonlar)
+
+print(orta_arifmetik(3, 7, 9, 15, 22))  # Natija: 11.2
+
+
+
+
+# 18) Ikki matnni taqqoslab, farqli harflarni chiqarish
+
+
+
+def farqli_harflar(matn1, matn2):
+    return set(matn1) ^ set(matn2)
+
+soz1 = input("Birinchi so‘zni kiriting: ")
+soz2 = input("Ikkinchi so‘zni kiriting: ")
+print(f"Farqli harflar: {farqli_harflar(soz1, soz2)}")
+
+
+
+# 19) Berilgan sonni rim raqamlariga o‘tkazish
+
+
+
+def rim_rakami(son):
+    rim = {
+        1000: "M", 900: "CM", 500: "D", 400: "CD",
+        100: "C", 90: "XC", 50: "L", 40: "XL",
+        10: "X", 9: "IX", 5: "V", 4: "IV",
+        1: "I"
+    }
+    natija = ""
+    for qiymat, belgi in rim.items():
+        while son >= qiymat:
+            natija += belgi
+            son -= qiymat
+    return natija
+
+n = int(input("Son kiriting: "))
+print(f"{n} rim raqamlarida: {rim_rakami(n)}")
+
+
+
+# 20) Matndagi eng uzun so‘zni topuvchi funksiya
+
+
+
+def eng_uzun_soz(matn):
+    sozlar = matn.split()
+    return max(sozlar, key=len)
+
+matn = input("Matn kiriting: ")
+print(f"Eng uzun so‘z: {eng_uzun_soz(matn)}")
+
+
+
+
