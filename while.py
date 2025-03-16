@@ -1,15 +1,15 @@
 # # 1) Foydalanuvchidan faqat to‘g‘ri parolni kiritishini talab qiluvchi dastur
 
 
-# parol = "python123"
-# kiritilgan_parol = ""
+parol = "python123"
+kiritilgan_parol = ""
 
-# while kiritilgan_parol != parol:
-#     kiritilgan_parol = input("Parolni kiriting: ")
-#     if kiritilgan_parol != parol:
-#         print("Noto‘g‘ri parol! Qaytadan kiriting.")
+while kiritilgan_parol != parol:
+    kiritilgan_parol = input("Parolni kiriting: ")
+    if kiritilgan_parol != parol:
+        print("Noto‘g‘ri parol! Qaytadan kiriting.")
 
-# print("Xush kelibsiz! ✅")
+print("Xush kelibsiz! ✅")
 
 
 
@@ -78,3 +78,91 @@ while True:
         break
     else:
         print(f"Siz {son} kiritdingiz. Davom eting!")
+
+
+
+# 5)  1 dan N gacha bo‘lgan sonlar yig‘indisini hisoblash
+
+
+n = int(input("N ni kiriting: "))
+summa = 0
+i = 1
+
+while i <= n:
+    summa += i
+    i += 1
+
+print(f"1 dan {n} gacha bo‘lgan sonlar yig‘indisi: {summa}")
+
+
+
+# 6) Foydalanuvchi kiritgan raqamning raqamlari yig‘indisini hisoblash
+
+son = int(input("Sonni kiriting: "))
+summa = 0
+
+while son > 0:
+    raqam = son % 10  # Oxirgi raqamni ajratib olamiz
+    summa += raqam  # Raqamni yig‘indiga qo‘shamiz
+    son //= 10  # Sonni qisqartiramiz
+
+print(f"Raqamlar yig‘indisi: {summa}")
+
+
+# 7) Fibonacci ketma-ketligini chiqarish
+
+
+n = int(input("Nechta Fibonacci soni chiqarilsin? "))
+
+a, b = 0, 1
+i = 0
+
+while i < n:
+    print(a, end=" ")
+    a, b = b, a + b
+    i += 1
+
+
+
+# 8) Mukammal sonni tekshirish
+
+
+son = int(input("Mukammal sonni tekshirish uchun son kiriting: "))
+
+yigindi = 0
+i = 1
+
+while i < son:
+    if son % i == 0:
+        yigindi += i
+    i += 1
+
+if yigindi == son:
+    print(f"{son} mukammal son! ✅")
+else:
+    print(f"{son} mukammal son emas. ❌")
+
+# 9) Son teskari yozish dasturi
+
+
+son = int(input("Son kiriting: "))
+teskari_son = 0
+
+while son > 0:
+    qoldiq = son % 10
+    teskari_son = teskari_son * 10 + qoldiq
+    son //= 10
+
+print(f"Teskari son: {teskari_son}")
+
+# 10) Ikki sonning EKUB (eng katta umumiy bo‘luvchi) ni topish
+
+
+
+a = int(input("Birinchi sonni kiriting: "))
+b = int(input("Ikkinchi sonni kiriting: "))
+
+while b != 0:
+    a, b = b, a % b  # Evklid algoritmi
+
+print(f"EKUB: {a}")
